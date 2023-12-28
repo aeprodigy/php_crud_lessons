@@ -10,6 +10,7 @@
 }
 .box1 button{
     float: right;
+    font-weight: 800;
 }
 .container{
     margin-top: 50px;
