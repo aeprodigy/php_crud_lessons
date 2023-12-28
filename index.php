@@ -1,35 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud PHP</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
-    <h1 id="main_title">PHP (CREATE, READ, UPDATE, DELETE)</h1>
-   <div class="container">
-    <h2>All Employees</h2>
-     <table class="table table-hover table-bordered table-str">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>John</td>
-                <td>Doe</td>
-                <td>23</td>
-            </tr>
-        </tbody>
-    </table>
-   </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
+   <?php include('header.php'); ?>
+   <?php include('db_connection.php'); ?>
+
+   <div class="box1">
+   <h2>All Employees</h2>
+   <button class="btn btn-primary">Add Employee</button>
+    </div>
+   <table class="table table-hover table-bordered table-str">
+       <thead>
+           <tr>
+               <th>ID</th>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Age</th>
+           </tr>
+       </thead>
+       <tbody>
+
+           <?php
+            $query = 'SELECT * FROM `employees`';
+            $check = mysqli_query($connection, $query);
+
+            if (!$check) {
+                die("not connected");
+            } else {
+                // echo "Fetched!";
+                // print_r($check);
+                while ($row = mysqli_fetch_assoc($check)) {
+            ?>
+                   <tr>
+                       <td><?php echo $row['id'] ?></td>
+                       <td><?php echo $row['first_name'] ?></td>
+                       <td><?php echo $row['last_name'] ?></td>
+                       <td><?php echo $row['age'] ?></td>
+                   </tr>
+           <?php
+                }
+            }
+            ?>
+
+       </tbody>
+   </table>
+   <?php include('footer.php'); ?>

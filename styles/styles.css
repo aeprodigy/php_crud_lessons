@@ -4,3 +4,13 @@
     padding: 20px;
     color: white;
 }
+.box1 h2{
+    float: left;
+    color: blue;
+}
+.box1 button{
+    float: right;
+}
+.container{
+    margin-top: 50px;
+}
