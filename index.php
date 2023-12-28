@@ -40,25 +40,47 @@
 
        </tbody>
    </table>
+   <?php 
+    if(isset($_GET['message'])){
+        echo "<h6>".$_GET['message']. "</h6>";
+    }
+   
+   ?>
 
    <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog" role="document">
-           <div class="modal-content">
-               <div class="modal-header">
-                   <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-               </div>
-               <div class="modal-body">
-                   ...
-               </div>
-               <div class="modal-footer">
-                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                   <button type="button" class="btn btn-primary">Save changes</button>
+   <form action="insert.php" method="post">
+       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+                   <div class="modal-body">
+
+                       <div class="form-group">
+                           <label for="fname">First Name</label>
+                           <input type="text" name='fname' class="form-control">
+                       </div>
+                       <div class="form-group">
+                           <label for="lname">Last Name</label>
+                           <input type="text" name='lname' class="form-control">
+                       </div>
+                       <div class="form-group">
+                           <label for="age">Age</label>
+                           <input type="text" name='age' class="form-control">
+                       </div>
+
+
+                   </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                       <input type="submit" class="btn btn-success" name="add_employee" value="Add">
+                   </div>
                </div>
            </div>
        </div>
-   </div>
+   </form>
    <?php include('footer.php'); ?>
