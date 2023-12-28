@@ -1,0 +1,4 @@
+<?php
+//databse connection file
+
+?>
